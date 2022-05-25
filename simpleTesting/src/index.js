@@ -9,9 +9,9 @@
 // at least number
 
 const validator = (pass) => {
-    const small = 'abcdefghijklmnopqrstuvwxyz'
+    const small = 'abcdefghijklmnopqrstuvwxyz';
     const number = '1234567890'
-    console.log()
+
 
 if(pass.length < 8){
     return {
@@ -30,13 +30,22 @@ if(!number.split('').find((element) => pass.includes(element))){
 if(!small.split('').find((el) => pass.includes(el.toUpperCase()))){
     return {
         status : false,
-        message : 'atleast 1 eight character needed in uppper case'
+        message : 'atleast 1 eight character needed in upper case'
+    }
+}
+
+if(!small.split('').find((el) => pass.includes(el))){
+    return {
+        status: false,
+        message : 'atleast one should be small character'
     }
 }
 return {
     status : true,
     message : 'all is correct'
 };
+
+
 
 }
 module.exports = validator;
