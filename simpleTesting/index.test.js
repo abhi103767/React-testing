@@ -1,9 +1,8 @@
 const {test} = require('@jest/globals')
 const { expect } = require('expect')
+const sum = require('./index.js')
 
-function sum(a,b){
-    return  a + b;
-}
+
 
 test("Should Work on positive Number", function(){
     expect(sum(2,2)).toBe(4);
