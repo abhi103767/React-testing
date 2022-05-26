@@ -20,10 +20,22 @@ describe('Button Tests', () => {
         render(<App></App>)
         let h3 = screen.getByText('Theme light');
         expect(h3).toHaveTextContent('light');
+        let button = screen.getByText('change Theme')
+        expect(button).toBeInTheDocument()
 
+        fireEvent.click(button);
+        expect(h3).toHaveTextContent('dark');
         // let themeButton = screen.getByText('change Theme');
         // fireEvent.click()
 
+    })
+
+    it.only(' hide after one click ', () => {
+        let f1 = jest.fn();
+        render(<App></App>)
+        let button = screen.getByText('Go away');
+        
+        expect(button).toBeInTheDocument()
     })
 
 })

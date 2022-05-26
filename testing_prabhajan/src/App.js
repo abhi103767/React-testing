@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 function App() {
   const [theme, setTheme] = useState(false);
+  const [isbtn,setIsBtn] = useState(false)
 
 const onThemeChange = () =>{
   setTheme(!theme)
@@ -16,6 +17,10 @@ const onThemeChange = () =>{
      <Button handleClick={onThemeChange}>
        change Theme
      </Button>
+
+     <button onClick={() => {
+       setIsBtn(!isbtn)
+     }}>Go away</button>
   
     </div>
   );
