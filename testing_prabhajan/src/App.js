@@ -5,8 +5,11 @@ import { useState } from 'react';
 
 
 function App() {
+
   const [theme, setTheme] = useState(false);
   const [isbtn,setIsBtn] = useState(false)
+  const [counter,setCounter] = useState(0);
+
 
 const onThemeChange = () =>{
   setTheme(!theme)
@@ -18,10 +21,12 @@ const onThemeChange = () =>{
        change Theme
      </Button>
 
-     <button onClick={() => {
-       setIsBtn(!isbtn)
-     }}>Go away</button>
-  
+
+
+    <h1 data-testid='countertext' >counter :- {counter}</h1>
+    <button onClick={() => {setCounter(counter + 5)}}>ADD</button>
+    <button onClick={() => {setCounter(counter - 5)}}>REDUCE</button>
+
     </div>
   );
 }
