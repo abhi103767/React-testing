@@ -1,5 +1,6 @@
 import Button from "./Button";
 import { fireEvent, getByTestId, render, screen } from '@testing-library/react'
+
 import App from '../App'
 
 
@@ -30,20 +31,28 @@ describe('Button Tests', () => {
 
     })
 
-    xit(' hide after one click ', () => {
-        let f1 = jest.fn();
-        render(<Button onclick={() => f1()}>Click Measdfsa</Button>)
-        const button = screen.getByTestId('cbutton');
-
-
+    it.only(' hide after one click ', () => {
+        let add = jest.fn();
+        render(<Button onClick={add}>Click Measdfsa</Button>)
+        const button = screen.getByText('Click Measdfsa')
         fireEvent.click(button);
         fireEvent.click(button)
-        expect(f1).toHaveBeenCalledTimes(1)
+        expect(add).toBeCalledTimes(2);
 
 
 
     })
 
+
+    it.only('button pressed', () => {
+        const fn = jest.fn();
+        render(<App></App>)
+        const btn = screen.getByText('ADD');
+        expect(btn).toBeInTheDocument()
+        fireEvent.click(btn);
+
+
+    })
 
     it.only('counter should work fine', () => {
         render(<App></App>)
