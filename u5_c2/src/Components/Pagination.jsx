@@ -11,9 +11,9 @@ export const Pagination = ({ total, selected, onPageChange }) => {
   for (let i = 1; i <= total; i++) {
     page.push(i);
   }
-  return <div className="pageContainer">
+  return <div className="pageContainer" >
 
-    <button onClick={() => {
+    <button  onClick={() => {
 
       if (currentPage === 2) {
         setCurrentPage(currentPage - 1)
@@ -23,6 +23,7 @@ export const Pagination = ({ total, selected, onPageChange }) => {
         setCurrentPage(currentPage - 1)
         setNextBtn(false);
       }
+      onPageChange();
 
     }} disabled={pervBtn}>
       &lt;
@@ -43,6 +44,7 @@ export const Pagination = ({ total, selected, onPageChange }) => {
         setCurrentPage(currentPage + 1)
         setPervBtn(false);
       }
+      onPageChange();
 
     }} disabled={nextBtn}>
       &gt;

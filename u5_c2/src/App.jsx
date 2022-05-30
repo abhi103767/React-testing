@@ -1,14 +1,16 @@
 import { Input } from "./Components/Input";
 import { Image } from "./Components/Image";
 import { Pagination } from "./Components/Pagination";
+import Eye from './Components/eye.svg'
 
 function App() {
   return (
     <div className="container">
-      <Input />
+      <Input size={'md'} rightLogo={Eye} />
 
       <Image alt={'duck'}
         borderRadius={100}
+
         width={4}
         height={2}
         fit={'cover'}

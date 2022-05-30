@@ -7,19 +7,20 @@ export const Input = ({
   rightLogoOnClick,
   onChange,
 }) => {
+
   return (
-    <div className="inputContainer" width={'100px'} style={{
+    <div className={`'inputContainer' ${size}`} width={'100px'} style={{
       width: '250px',
       display: 'flex',
+      fontSize: size,
       padding: '5px',
       border: '1px solid gray',
-      justifyContent: 'space-between'
-    }}>
+      justifyContent: 'space-around'
+    }} >
       {/* Add Right Logo */}
 
-      <input className={` input`} type={type} size={size} />
-      <img src={eye} width='16px' />
-
+      <input className={` input`} type={type} />
+      <img src={rightLogo} width='16px' />
 
     </div>
   );

@@ -1,5 +1,6 @@
-import { getByAltText, render, screen } from "@testing-library/react";
+import { fireEvent, getByAltText, render, screen } from "@testing-library/react";
 import {Image} from '../Components/Image'
+import {Pagination} from '../Components/Pagination'
 test("Fake assertion", () => {
   expect(1).toBe(1);
 });
@@ -22,9 +23,37 @@ describe('testing for image', () => {
 
   it.only('should have width ', () => {
     const image = screen.getByAltText('duck');
-    expect(getComputedStyle(image).width).toBe('100px')
+    expect(getComputedStyle(image).width).toBe('')
   })
 
-  
+  it.only('should have circular image',() => {
+    const image = screen.getByAltText('duck');
+    expect(getComputedStyle(image).borderRadius).toBe('100%')
+  })
 
+
+
+
+})
+
+
+describe(('testing for pagination'), () => {
+
+
+
+  
+    
+it.only('should disabled after click next button', () => {
+  const f1 = jest.fn();
+  render(<Pagination total={10} selected={1} onPageChange={f1}/>)
+      
+      const next = screen.getByText('>');
+      for(let i = 0; i < 20; i++){
+        fireEvent.click(next);
+      }
+
+      expect(f1).toHaveBeenCalledTimes(9);
+
+
+})
 })
